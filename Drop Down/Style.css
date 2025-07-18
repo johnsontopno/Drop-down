@@ -1,78 +1,160 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* 🔄 Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    background-image: url(background.jpg);
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
-}
-.menu-bar{
-    background: rgb(12, 12, 12);
-    text-align: center;
-}
-.menu-bar ul{
-    display: inline-flex;
-    list-style: none;
-    color: #ffffff;
-}
-.menu-bar ul li{
-    width: 120px;
-    margin: 15px;
-    padding: 15px;
-}
-.menu-bar ul li a{
-    text-decoration: none;
-    color: white;
-}
-.active, .menu-bar ul li:hover{
-    background: #5d5f5d;
-    border-radius: 3px;
-}
-.menu-bar .fa{
-    margin-right: 8px;
-}
-.sub-menu-1{
-    display: none;
-}
-.menu-bar ul li:hover .sub-menu-1{
-    display: block;
-    position: absolute;
-    background: rgb(0, 0, 0);
-    margin-top: 15px;
-    margin-left: -15px;
-}
-.menu-bar ul li:hover .sub-menu-1 ul{
-    display: block;
-    margin: 10px;
-}
-.menu-bar ul li:hover .sub-menu-1 ul li{
-    width: 150px;
-    padding: 10px;
-    border-bottom: 1px dotted #ffffff;
-    background: transparent;
-    border-radius: 0;
-    text-align: left;
-}
-.menu-bar ul li:hover .sub-menu-1 ul li:last-child{
-    border-bottom: none;
-}
-.menu-bar ul li:hover .sub-menu-1 ul li a:hover{
-    color: #afb1a9;
 
+/* 🖼 Background Styling */
+body {
+  background: url('img/geranimo-9yvADFNcXOc-unsplash.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.fa-angle-right{
-    float: right;
+
+/* 🧭 Menu Bar */
+.menu-bar {
+  background: #000000;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
-.sub-menu-2{
-    display: none;
+
+.main-menu {
+  display: inline-flex;
+  list-style: none;
 }
-.hover-me:hover .sub-menu-2{
-    position: absolute;
-    display: block;
-    margin-top: -40px;
-    margin-left: 140px;
-    background: rgb(10, 10, 10);
+
+/* 🔗 Menu Items */
+.main-menu li {
+  position: relative;
+}
+
+.main-menu li a {
+  display: block;
+  padding: 12px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.main-menu li:hover
+/* .main-menu .active  */
+{
+  background:  #000000;
+  border-radius: 4px;
+}
+
+.main-menu .fa {
+  margin-right: 8px;
+}
+
+.main-menu li a:hover {
+  color: #00b7ffd8;
+}
+
+
+/* 📂 First-Level Dropdown */
+.sub-menu-1 {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #000000;
+  border-radius: 0 0 4px 4px;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.has-submenu:hover .sub-menu-1 {
+  display: block;
+}
+
+.sub-menu-1 li {
+  padding: 0px 5px;
+  text-align: left;
+  border-bottom: 1px dotted #ffffff;
+}
+
+.sub-menu-1 li:last-child {
+  border-bottom: none;
+}
+
+.sub-menu-1 li a {
+  color: #ffffff;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sub-menu-1 li a:hover {
+  color: #00b7ffd8;
+}
+
+/* 📂 Second-Level Dropdown */
+.sub-menu-2 {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 180px;
+  background: #000000;
+  border-radius: 0 4px 4px 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.hover-me:hover .sub-menu-2 {
+  display: block;
+}
+
+.sub-menu-2 li {
+  padding: 0px 5px;
+  border-bottom: 1px dotted #cccccc;
+}
+
+.sub-menu-2 li:last-child {
+  border-bottom: none;
+}
+
+.sub-menu-2 li a {
+  color: #ffffff;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sub-menu-2 li a:hover {
+  color: #00b7ffd8;
+}
+
+.fa-angle-right {
+  float: right;
+  margin-top: 4px;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .main-menu {
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .main-menu li {
+    width: 100%;
+    text-align: left;
+  }
+
+  .sub-menu-1,
+  .sub-menu-2 {
+    position: relative;
+    top: auto;
+    left: auto;
+    background: #000000;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .sub-menu-2 {
+    padding-left: 15px;
+  }
 }
